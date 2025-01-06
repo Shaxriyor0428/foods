@@ -15,7 +15,7 @@ const Home = () => {
         setData(res.data.recipes);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setError("Data fetching error.");
         setLoading(false);
       });

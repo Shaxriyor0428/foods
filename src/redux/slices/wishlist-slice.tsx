@@ -7,7 +7,7 @@ interface wishlistState {
 }
 
 const initialState: wishlistState = {
-  value: [],
+  value: JSON.parse(localStorage.getItem("wishlist") || "[]"), // default qiymatni to'g'ri tekshirish
 };
 
 export const wishlistSlice = createSlice({
@@ -20,10 +20,12 @@ export const wishlistSlice = createSlice({
       );
       if (index < 0) {
         state.value.push(action.payload);
+        localStorage.setItem("wishlist", JSON.stringify(state.value)); // JSON.stringify
       } else {
         state.value = state.value.filter(
           (item) => item.id !== action.payload.id
         );
+        localStorage.setItem("wishlist", JSON.stringify(state.value)); // JSON.stringify
       }
     },
   },
