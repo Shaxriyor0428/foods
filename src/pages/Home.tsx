@@ -25,7 +25,7 @@ const Home = () => {
   if (error)
     return <div className="text-center mt-6 text-red-500">{error}</div>;
 
-  return <Products data={data} title="Products"/>;
+  return <Products data={data} title="Foods"/>;
 };
 
 export default Home;
