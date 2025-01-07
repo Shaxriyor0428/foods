@@ -1,11 +1,11 @@
 import { FC, ReactNode, useState } from "react";
-import { FcLike } from "react-icons/fc";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { FaHeart } from "react-icons/fa";
 import { IProduct } from "../types";
 import { saveWishlist } from "../redux/slices/wishlist-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux";
 import Modal from "./Modal";
+import { FaRegHeart } from "react-icons/fa";
 
 interface ProductsProps {
   data: IProduct[] | null;
@@ -35,8 +35,6 @@ const Products: FC<ProductsProps> = ({ data, title }) => {
       key={prod.id}
       className=" shadow-md p-4 rounded-lg bg-white hover:shadow-lg transition-shadow"
     >
-
-
       <img
         onClick={() => handleImage(prod)}
         src={prod.image}
@@ -52,9 +50,9 @@ const Products: FC<ProductsProps> = ({ data, title }) => {
         className="mt-4 flex items-center justify-center text-2xl"
       >
         {users.some((item) => item.id === prod.id) ? (
-          <FcLike />
+          <FaHeart className="text-red-500"/>
         ) : (
-          <IoMdHeartEmpty />
+          <FaRegHeart />
         )}
       </button>
     </div>
